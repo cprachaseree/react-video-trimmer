@@ -147,10 +147,9 @@ function (_React$PureComponent) {
             arrayBuffer = _ref.arrayBuffer,
             dataURL = _ref.dataURL;
 
-        _this.updateVideoDataURL(dataURL); //const timeRangeStart = this.state.timeRange.start;
+        _this.updateVideoDataURL(dataURL);
 
-
-        var timeRangeStart = 0;
+        var timeRangeStart = _this.state.timeRange.start;
         var duration = _this.webVideo.videoData.duration;
         var timeLimit = timeRangeStart + (_this.props.timeLimit || 10);
         var timeRangeEnd = duration > timeLimit ? timeLimit : duration;
@@ -167,8 +166,6 @@ function (_React$PureComponent) {
           decoding: false
         });
 
-        console.log(_this.state.timeRange.start);
-        console.log(_this.state.timeRange.end);
         doneCB();
       })["catch"](function (e) {
         return console.log(e);
@@ -186,9 +183,6 @@ function (_React$PureComponent) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleEncodeVideo", function (timeRange) {
-      console.log(timeRange.start);
-      console.log(timeRange.end);
-
       _this.setState({
         encoding: true,
         videoDataURL: "",

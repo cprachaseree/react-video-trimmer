@@ -98,8 +98,7 @@ class ReactVideoTrimmer extends React.PureComponent {
       .decode(file)
       .then(({ blob, arrayBuffer, dataURL }) => {
         this.updateVideoDataURL(dataURL);
-        //const timeRangeStart = this.state.timeRange.start;
-        const timeRangeStart = 0;
+        const timeRangeStart = this.state.timeRange.start;
         const duration = this.webVideo.videoData.duration;
         const timeLimit = timeRangeStart + (this.props.timeLimit || 10);
         const timeRangeEnd = duration > timeLimit ? timeLimit : duration;
@@ -108,7 +107,6 @@ class ReactVideoTrimmer extends React.PureComponent {
           playedSeconds: (timeRangeEnd - timeRangeStart) / 2 + timeRangeStart
         });
         this.setState({ decoding: false });
-        console.log(this.state.timeRange.start);
         doneCB();
       })
       .catch(e => console.log(e));
