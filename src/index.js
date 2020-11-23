@@ -74,7 +74,7 @@ class ReactVideoTrimmer extends React.PureComponent {
     videoDataURL: "",
     videoFrames: [],
     isDecoding: false,
-    timeRange: { start: 5, end: this.props.timeLimit || 15 },
+    timeRange: { start: 0, end: this.props.timeLimit || 30 },
     encodedVideo: null,
     playedSeconds: 0,
     ffmpegReady: false
