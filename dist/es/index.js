@@ -168,6 +168,7 @@ function (_React$PureComponent) {
         });
 
         console.log(_this.state.timeRange.start);
+        console.log(_this.state.timeRange.end);
         doneCB();
       })["catch"](function (e) {
         return console.log(e);
@@ -185,6 +186,9 @@ function (_React$PureComponent) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleEncodeVideo", function (timeRange) {
+      console.log(timeRange.start);
+      console.log(timeRange.end);
+
       _this.setState({
         encoding: true,
         videoDataURL: "",
