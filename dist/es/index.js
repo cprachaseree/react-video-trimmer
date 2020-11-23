@@ -99,8 +99,8 @@ function (_React$PureComponent) {
       videoFrames: [],
       isDecoding: false,
       timeRange: {
-        start: 5,
-        end: _this.props.timeLimit || 15
+        start: 0,
+        end: _this.props.timeLimit || 30
       },
       encodedVideo: null,
       playedSeconds: 0,
@@ -147,9 +147,10 @@ function (_React$PureComponent) {
             arrayBuffer = _ref.arrayBuffer,
             dataURL = _ref.dataURL;
 
-        _this.updateVideoDataURL(dataURL);
+        _this.updateVideoDataURL(dataURL); //const timeRangeStart = this.state.timeRange.start;
 
-        var timeRangeStart = _this.state.timeRange.start;
+
+        var timeRangeStart = 0;
         var duration = _this.webVideo.videoData.duration;
         var timeLimit = timeRangeStart + (_this.props.timeLimit || 10);
         var timeRangeEnd = duration > timeLimit ? timeLimit : duration;
@@ -166,6 +167,7 @@ function (_React$PureComponent) {
           decoding: false
         });
 
+        console.log(_this.state.timeRange.start);
         doneCB();
       })["catch"](function (e) {
         return console.log(e);
